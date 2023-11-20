@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3yy24p70a2p"]
+
+[ext_resource type="PackedScene" uid="uid://drloaicapb8vi" path="res://carAttempt1.tscn" id="1_khjkb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5k5re"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0upf"]
+albedo_color = Color(0.14902, 0.337255, 0.0705882, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_088uc"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(100, 0, 0, 0, 0.5, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("BoxMesh_5k5re")
+surface_material_override/0 = SubResource("StandardMaterial3D_y0upf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(100, 0, 0, 0, 0.5, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("BoxShape3D_088uc")
+
+[node name="Car" parent="." instance=ExtResource("1_khjkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72798, 0.25, 4.53327)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.597205, -0.141914, 0.789434, 0, 0.984223, 0.17693, -0.802088, -0.105664, 0.587783, 4.40763, 3.60966, 8.24344)
