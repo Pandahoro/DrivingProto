@@ -26,7 +26,6 @@ metallic = 1.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_otx83"]
 resource_name = "_defaultMat"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21hkk"]
@@ -327,6 +326,8 @@ shadow_mesh = SubResource("ArrayMesh_bw1sw")
 
 [node name="sedanSports2" type="VehicleBody3D" parent="."]
 mass = 40.02
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0, -0.4)
 script = ExtResource("2_8y0nl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sedanSports2"]
@@ -346,7 +347,6 @@ skeleton = NodePath("")
 [node name="FrontLeftWheel" type="VehicleWheel3D" parent="sedanSports2"]
 transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.500658, 0.3, -0.66)
 use_as_steering = true
-wheel_roll_influence = 0.0
 wheel_radius = 0.3
 suspension_stiffness = 100.0
 suspension_max_force = 8000.0
@@ -361,7 +361,6 @@ skeleton = NodePath("")
 [node name="FrontRightWheel" type="VehicleWheel3D" parent="sedanSports2"]
 transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.500783, 0.3, -0.66)
 use_as_steering = true
-wheel_roll_influence = 0.0
 wheel_radius = 0.3
 suspension_stiffness = 100.0
 suspension_max_force = 8000.0
@@ -376,7 +375,6 @@ skeleton = NodePath("")
 [node name="BackLeftWheel" type="VehicleWheel3D" parent="sedanSports2"]
 transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.50209, 0.3, 0.663086)
 use_as_traction = true
-wheel_roll_influence = 0.0
 wheel_radius = 0.3
 suspension_stiffness = 100.0
 suspension_max_force = 8000.0
@@ -391,7 +389,6 @@ skeleton = NodePath("")
 [node name="BackRightWheel" type="VehicleWheel3D" parent="sedanSports2"]
 transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.508042, 0.3, 0.663086)
 use_as_traction = true
-wheel_roll_influence = 0.0
 wheel_radius = 0.3
 suspension_stiffness = 100.0
 suspension_max_force = 8000.0
@@ -402,3 +399,12 @@ damping_relaxation = 2.0
 transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.208042, 0, 0.00308561)
 mesh = SubResource("ArrayMesh_wvvb3")
 skeleton = NodePath("")
+
+[node name="RotatePivot" type="Node3D" parent="sedanSports2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="TiltPivot" type="Node3D" parent="sedanSports2/RotatePivot"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="sedanSports2/RotatePivot/TiltPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.053)

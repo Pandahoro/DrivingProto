@@ -28,6 +28,4 @@ shape = SubResource("BoxShape3D_088uc")
 
 [node name="Car" parent="." instance=ExtResource("1_khjkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72798, 0.25, 4.53327)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.597205, -0.141914, 0.789434, 0, 0.984223, 0.17693, -0.802088, -0.105664, 0.587783, 4.40763, 3.60966, 8.24344)
+top_level = true
