@@ -1,8 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3yy24p70a2p"]
+[gd_scene load_steps=15 format=3 uid="uid://c3yy24p70a2p"]
 
 [ext_resource type="PackedScene" uid="uid://drloaicapb8vi" path="res://carAttempt1.tscn" id="1_khjkb"]
 [ext_resource type="PackedScene" uid="uid://bbfdqhnb1j0gy" path="res://road_start.tscn" id="2_6tgtq"]
 [ext_resource type="PackedScene" uid="uid://gj8ydcr7oqxn" path="res://road_start_positions.tscn" id="3_55xtl"]
+[ext_resource type="PackedScene" uid="uid://dpcdm5fjfxgkl" path="res://road_corner_small.tscn" id="4_wi704"]
+[ext_resource type="PackedScene" uid="uid://2ao80ityp2be" path="res://road_corner_larger.tscn" id="5_bfxqp"]
+[ext_resource type="PackedScene" uid="uid://cones5cybo14b" path="res://road_split.tscn" id="6_muru4"]
+[ext_resource type="PackedScene" uid="uid://dmkrasly3n4sb" path="res://road_straight.tscn" id="7_rtmxj"]
+[ext_resource type="PackedScene" uid="uid://bx634cjevo6h6" path="res://road_straight_long_bump_round.tscn" id="8_hatof"]
+[ext_resource type="PackedScene" uid="uid://c66cp3fs0x1rn" path="res://road_curved.tscn" id="9_h1e7e"]
+[ext_resource type="PackedScene" uid="uid://d3r1qsbil6nj7" path="res://road_corner_large.tscn" id="10_mcxa5"]
+[ext_resource type="PackedScene" uid="uid://bnknbowwkitgo" path="res://road_straight_long_mid.tscn" id="11_q0kkv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5k5re"]
 
@@ -41,3 +49,51 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 3.02824, 0.364904, 5.96676
 
 [node name="roadStartPositions" parent="." instance=ExtResource("3_55xtl")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 4.329, 0.365, 25.956)
+
+[node name="roadCornerSmall" parent="." instance=ExtResource("4_wi704")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -23.5909, 0.365, -26.733)
+
+[node name="roadCornerLarger" parent="." instance=ExtResource("5_bfxqp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 4.31993, 0.365, -14.0052)
+
+[node name="roadSplit" parent="." instance=ExtResource("6_muru4")]
+transform = Transform3D(-4.37114e-07, 0, -10, 0, 10, 0, 10, 0, -4.37114e-07, 24.3196, 0.365, -47.0067)
+
+[node name="roadSplit2" parent="." instance=ExtResource("6_muru4")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 77.2879, 0.365, -44.0047)
+
+[node name="roadCornerSmall2" parent="." instance=ExtResource("4_wi704")]
+transform = Transform3D(-4.37114e-07, 0, -10, 0, 10, 0, 10, 0, -4.37114e-07, 64.2815, 0.365, -47.0072)
+
+[node name="roadStraight" parent="." instance=ExtResource("7_rtmxj")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 25, 74.2736, 0.364998, 0.625805)
+
+[node name="roadStraightLongBumpRound" parent="." instance=ExtResource("8_hatof")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 74.3013, 0.365, 10.8591)
+
+[node name="roadCurved" parent="." instance=ExtResource("9_h1e7e")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 79.3127, 0.365, 30.7248)
+
+[node name="roadCurved2" parent="." instance=ExtResource("9_h1e7e")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 82.3649, 0.365, 30.7135)
+
+[node name="roadCornerSmall3" parent="." instance=ExtResource("4_wi704")]
+transform = Transform3D(-10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, 82.3168, 0.365, 17.7002)
+
+[node name="roadCornerLarge" parent="." instance=ExtResource("10_mcxa5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 39.7831, 0.365, 55.6874)
+
+[node name="roadStraightLongMid" parent="." instance=ExtResource("11_q0kkv")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 39.7853, 0.365, 75.5131)
+
+[node name="roadCornerLarger2" parent="." instance=ExtResource("5_bfxqp")]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 42.7995, 0.365, 62.5044)
+
+[node name="roadCornerSmall4" parent="." instance=ExtResource("4_wi704")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 17.2721, 0.372485, 95.506)
+
+[node name="roadStraight2" parent="." instance=ExtResource("7_rtmxj")]
+transform = Transform3D(-4.37114e-07, 0, 6, 0, 10, 0, -10, 0, -2.62268e-07, 20.3776, 0.364998, 95.4943)
+
+[node name="roadStraight3" parent="." instance=ExtResource("7_rtmxj")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 70, 4.33, 0.365, 134.806)
