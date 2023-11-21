@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://drloaicapb8vi"]
+[gd_scene load_steps=18 format=3 uid="uid://drloaicapb8vi"]
 
 [ext_resource type="Script" path="res://sedanSports2.gd" id="2_8y0nl"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="2_v6bvo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cc2wq"]
 size = Vector3(1.38028, 0.960011, 2.38255)
@@ -400,11 +401,13 @@ transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.20804
 mesh = SubResource("ArrayMesh_wvvb3")
 skeleton = NodePath("")
 
-[node name="RotatePivot" type="Node3D" parent="sedanSports2"]
+[node name="target" type="Node3D" parent="sedanSports2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="TiltPivot" type="Node3D" parent="sedanSports2/RotatePivot"]
-transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+[node name="Camera3D" type="Camera3D" parent="sedanSports2/target"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 1.71287, 3.67327)
+current = true
+script = ExtResource("2_v6bvo")
 
-[node name="Camera3D" type="Camera3D" parent="sedanSports2/RotatePivot/TiltPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.053)
+[node name="TiltPivot" type="Node3D" parent="sedanSports2/target"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
