@@ -328,7 +328,7 @@ shadow_mesh = SubResource("ArrayMesh_bw1sw")
 [node name="sedanSports2" type="VehicleBody3D" parent="."]
 mass = 40.02
 center_of_mass_mode = 1
-center_of_mass = Vector3(0, 0, -0.4)
+center_of_mass = Vector3(0, 0, -0.2)
 script = ExtResource("2_8y0nl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sedanSports2"]
@@ -405,7 +405,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="sedanSports2/target"]
-transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 1.71287, 3.67327)
+transform = Transform3D(1, 0, 0, 0, 0.96391, 0.266229, 0, -0.266229, 0.96391, 0, 1.71287, 3.67327)
 current = true
 script = ExtResource("2_v6bvo")
 
