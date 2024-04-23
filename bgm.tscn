@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb5ow8jt7ld4o"]
+
+[ext_resource type="AudioStream" uid="uid://dow1pw77v1ena" path="res://Synthwave - Virtual Voyager Loop.wav" id="1_ed67l"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_ed67l")
+autoplay = true
