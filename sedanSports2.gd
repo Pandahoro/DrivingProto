@@ -4,9 +4,8 @@ var max_rpm = 600
 var max_torque = 100
 var camera
 var character
-
-
-
+	
+	
 func _physics_process(delta):
 	
 	#get the position of the camera
@@ -19,3 +18,4 @@ func _physics_process(delta):
 	$BackLeftWheel.engine_force = acceleration * max_torque * ( 1 - rpm / max_rpm)
 	rpm = abs($BackRightWheel.get_rpm())
 	$BackRightWheel.engine_force = acceleration * max_torque * ( 1 - rpm / max_rpm)
+
