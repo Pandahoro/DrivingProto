@@ -1,6 +1,6 @@
 extends Node3D
 var lap = 0
-var lap2 = 0
+var inclap = 1
 var checkpointActive = [1,0,0,0,0,0,0,0,0,0,0,0,0,0]
 var checkpoints = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
@@ -25,17 +25,19 @@ func _on_checkpoint_1_body_entered(body):
 
 func _on_checkpoint_1_body_exited(body):
 	print("fudge") # Replace with function body.
-	lap += 1
-	var a = 1
-	var d = 0
-	var i = 0
-	if checkpointActive[i] == a:
-		checkpointActive[i] = 0
-		checkpoints[i] = 1
-		i += 1
-		checkpointActive[i] = a
-	print(lap) # Replace with function body.
-	print("1: ",checkpointActive[0], "2: ", checkpointActive[1], "3: ", checkpointActive[2])
+	if (inclap == 1):
+		lap += 1
+		var a = 1
+		var d = 0
+		var i = 0
+		if checkpointActive[i] == a:
+			checkpointActive[i] = 0
+			checkpoints[i] = 1
+			i += 1
+			checkpointActive[i] = a
+			inclap = 0
+			print(lap) # Replace with function body.
+			print("1: ",checkpointActive[0], "2: ", checkpointActive[1], "3: ", checkpointActive[2])
 
 func _on_checkpoint_2_body_exited(body):
 
@@ -214,6 +216,8 @@ func _on_checkpoint_14_body_shape_exited(body_rid, body, body_shape_index, local
 		checkpointActive[i] = 0
 		checkpoints[i] = 1
 		i += 1
-		checkpointActive[i] = a
+		inclap = 1
+		checkpointActive = [1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		checkpoints = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 	print(lap) # Replace with function body.
 	print(" 1: ",checkpointActive[0], " 2: ", checkpointActive[1], " 3: ", checkpointActive[2], " 4: ", checkpointActive[3], " 5: ", checkpointActive[4], " 6: ", checkpointActive[5], " 7: ", checkpointActive[6], " 8: ", checkpointActive[7], " 9: ", checkpointActive[8], " 10: ", checkpointActive[9], " 11: ", checkpointActive[10], " 12: ", checkpointActive[11], " 13: ", checkpointActive[12], " 14: ", checkpointActive[13]) 

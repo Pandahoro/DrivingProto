@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3yy24p70a2p"]
+[gd_scene load_steps=26 format=3 uid="uid://c3yy24p70a2p"]
 
 [ext_resource type="PackedScene" uid="uid://drloaicapb8vi" path="res://carAttempt1.tscn" id="1_khjkb"]
 [ext_resource type="PackedScene" uid="uid://bbfdqhnb1j0gy" path="res://road_start.tscn" id="2_6tgtq"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cvclcijh6htcl" path="res://belfast_sunset_puresky_4k.hdr" id="12_un0p7"]
 [ext_resource type="Script" path="res://Checkpoint1.gd" id="14_88m7s"]
 [ext_resource type="Script" path="res://CollisionShape3D2.gd" id="15_wtaut"]
+[ext_resource type="Shader" path="res://DrivingScene.gdshader" id="16_a665f"]
+[ext_resource type="Texture2D" uid="uid://cx8xw58q6cila" path="res://rgba-noise-medium.png" id="17_kj1by"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_iipls"]
 panorama = ExtResource("12_un0p7")
@@ -48,6 +50,23 @@ backlight = Color(0.12549, 0.27451, 0.486275, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p0klm"]
 size = Vector3(7.6909, 2.21771, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6chg"]
+shader = ExtResource("16_a665f")
+shader_parameter/vhs_resolution = Vector2(640, 380)
+shader_parameter/samples = 2
+shader_parameter/crease_noise = 0.8
+shader_parameter/crease_opacity = 0.5
+shader_parameter/filter_intensity = 0.1
+shader_parameter/tape_crease_smear = 0.3
+shader_parameter/tape_crease_intensity = 0.3
+shader_parameter/tape_crease_jitter = 0.2
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 1.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.1
+shader_parameter/noise_texture = ExtResource("17_kj1by")
 
 [node name="Node3D" type="Node3D"]
 
@@ -218,6 +237,17 @@ shape = SubResource("BoxShape3D_p0klm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.80799, 0.89145, 31.4559)
 shape = SubResource("BoxShape3D_p0klm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 48.619
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_u6chg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="area_entered" from="Checkpoint1" to="Car" method="_on_checkpoint_1_area_entered"]
 [connection signal="body_entered" from="Checkpoint1" to="Car" method="_on_checkpoint_1_body_entered"]
