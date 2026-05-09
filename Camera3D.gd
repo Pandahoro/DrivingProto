@@ -1,6 +1,6 @@
 extends Camera3D
 # trying to set up the ability to change camera distance and height
-@export_group("Camera distance")
+
 @export var distance: float = 4.0
 @export var height: float = 2.0
 
